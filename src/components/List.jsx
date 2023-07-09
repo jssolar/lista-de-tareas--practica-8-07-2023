@@ -18,6 +18,13 @@ const List = () => {
       setTarea('');
     }
   };
+
+  const borrarTarea = (index) => {
+    const borrar = nuevaTarea.filter((eliminar, i) => {
+      return i !== index;
+    });
+    setNuevaTarea(borrar);
+  };
   return (
     <div className="input-group-text">
       <form onSubmit={handleSubmit}>
@@ -31,19 +38,27 @@ const List = () => {
           {nuevaTarea.length}
         </button>
         <ul>
-          {nuevaTarea.length > 0
-            ? nuevaTarea.map((item, index) => {
-                return (
-                  <li
-                    className="list-group-item"
-                    onClick={handleClick}
-                    key={index}
+          {nuevaTarea.length > 0 ? (
+            nuevaTarea.map((item, index) => {
+              return (
+                <li
+                  className="list-group-item lista"
+                  onClick={handleClick}
+                  key={index}
+                >
+                  {item}{' '}
+                  <span
+                    className="d-flex float-end"
+                    onClick={() => borrarTarea(index)}
                   >
-                    {item}
-                  </li>
-                );
-              })
-            : 'Ingresar nueva tarea'}
+                    x
+                  </span>
+                </li>
+              );
+            })
+          ) : (
+            <p className="float-start">No hay tareas</p>
+          )}
         </ul>
       </form>
     </div>
