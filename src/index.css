@@ -27,3 +27,7 @@ button:hover {
   background-color: #646cff;
   color: aliceblue;
 }
+
+span > .borrar {
+  cursor: pointer;
+}

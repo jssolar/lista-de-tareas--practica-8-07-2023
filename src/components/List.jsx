@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import List from './List.css';
 
 const List = () => {
   const [tarea, setTarea] = useState('');
@@ -42,13 +43,13 @@ const List = () => {
             nuevaTarea.map((item, index) => {
               return (
                 <li
-                  className="list-group-item lista"
+                  className="list-group-item"
                   onClick={handleClick}
                   key={index}
                 >
                   {item}{' '}
                   <span
-                    className="d-flex float-end"
+                    className="d-flex float-end borrar"
                     onClick={() => borrarTarea(index)}
                   >
                     x
